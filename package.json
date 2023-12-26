@@ -1,0 +1,23 @@
+{
+  "name": "books-manager-server",
+  "version": "1.0.0",
+  "description": "book manager server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciofao/node-books-manager-server.git"
+  },
+  "keywords": [
+    "book",
+    "management"
+  ],
+  "author": "@marciofao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciofao/node-books-manager-server/issues"
+  },
+  "homepage": "https://github.com/marciofao/node-books-manager-server#readme"
+}
