@@ -6,5 +6,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => { 
-    console.log(`litening port ${port}`)
+    console.log(`listening port ${port}`)
 })
