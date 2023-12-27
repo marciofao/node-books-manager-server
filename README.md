@@ -4,7 +4,7 @@ Made with node + Express
 
 ## Features
 
-- http routes
+- http routes (express router)
 
 
 ## Getting Started
