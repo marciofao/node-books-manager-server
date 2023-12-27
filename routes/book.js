@@ -1,9 +1,8 @@
-const {router} = require('express')
+const { Router } = require('express')
 
 const router = Router()
 
-
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send('Hello World, it works!')
 })
 
