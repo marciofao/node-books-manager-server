@@ -1,7 +1,8 @@
+const fs = require('fs')
 function getBooks(req, res){
     try{
-        //throw new Error('This is a custom error')
-        res.send('Hello World, it works!')
+        const books = JSON.parse(fs.readFileSync('booksDb.json'))
+        res.send(books)
     }catch(error){
         res.status(500)
         res.send(error.message)
