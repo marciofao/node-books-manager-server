@@ -2,9 +2,10 @@
 
 Made with node + Express
 
-## Features
+## Current Features
 
 - http routes (express router)
+- File manipulation (fs) as db
 
 
 ## Getting Started
