@@ -1,6 +1,7 @@
 # Books management system
 
 Made with node + Express
+companion frontend app: https://github.com/marciofao/react-book-manager
 
 ## Current Features
 
