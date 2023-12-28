@@ -8,6 +8,15 @@ companion frontend app: https://github.com/marciofao/react-book-manager
 - http routes (express router)
 - File manipulation (fs) as db
 
+## available endpoints
+
+- GET /books
+- GET /books/:id
+- POST /books (body: `{id, name}`)
+- PATCH /books/:id
+- DEL /books/:id
+
+
 
 ## Getting Started
 
