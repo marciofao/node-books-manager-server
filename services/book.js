@@ -24,9 +24,16 @@ function updateBook(changes, id) {
     fs.writeFileSync('booksDb.json', JSON.stringify(currentBooks))
 }
 
+function removeBook(id) {
+    const books = JSON.parse(fs.readFileSync('booksDb.json'))
+    const filteredBooks = books.filter(book => book.id !== id)
+    fs.writeFileSync('booksDb.json', JSON.stringify(filteredBooks))
+}
+
 module.exports = {
     getAllBooks,
     getBookById,
     insertBook,
-    updateBook
+    updateBook,
+    removeBook
 }
