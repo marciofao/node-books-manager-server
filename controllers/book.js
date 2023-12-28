@@ -13,10 +13,18 @@ function getBooks(req, res) {
 function getBook(req, res) {
     try {
         const id = req.params.id
-        const book = getBookById(id)
-        res.send(book)
+        if(id && Number(id)) {
+            const book = getBookById(id)
+            res.send(book)
+        }else{
+            res.status(422)
+            res.send('Invalid book id')
+        }
+        
+        
     } catch (error) {
-
+        res.status(500)
+        res.send(error.message) 
     }
 }
 
@@ -46,8 +54,15 @@ function patchBook(req, res) {
 function deleteBook(req, res) {
     try { 
         const id = req.params.id
-        removeBook( id)
-        res.send('Book '+id+' deleted')
+
+        if(id && Number(id)) {
+            removeBook( id)
+            res.send('Book '+id+' deleted')
+        }else{
+            res.status(422)
+            res.send('Invalid book id')
+        }
+        
     } catch (error) { 
         res.status(500)
         res.send(error.message) 
