@@ -31,8 +31,13 @@ function getBook(req, res) {
 function postBook(req, res) {
     try {
         const newBook = req.body
-        if (req.body.nome) {
-            insertBook(newBook)
+        if (req.body.name) {
+            const insert = insertBook(newBook)
+            if (insert && insert.type === 'Error') {
+                res.status(503)
+                res.send(insert.message)
+                return false;
+            }
             res.send('Book sucessfully added')
         } else {
             res.status(422)

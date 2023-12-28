@@ -12,8 +12,17 @@ function getBookById(id) {
 
 function insertBook(newBook) {
     const books = JSON.parse(fs.readFileSync('booksDb.json'))
-    const newBooksList = [...books, newBook]
-    fs.writeFileSync('booksDb.json', JSON.stringify(newBooksList))
+    const bookExists = books.findIndex(book => book.id === newBook.id)
+    if(bookExists !== -1){
+        return {
+            type: 'Error',
+            message: 'Book id already exists'
+        }
+    }else{
+        const newBooksList = [...books, newBook]
+        fs.writeFileSync('booksDb.json', JSON.stringify(newBooksList))
+    }
+    
 }
 
 function updateBook(changes, id) {
