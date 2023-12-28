@@ -51,8 +51,15 @@ function patchBook(req, res) {
 
         if (id && Number(id)) {
             const body = req.body
-            updateBook(body, id)
-            res.send('Book ' + id + ' sucessfully updated')
+            const edited = updateBook(body, id)
+            console.log(typeof(edited))
+            if ( edited  && edited.type === 'Error') {
+                res.status(422)
+                res.send('Invalid book id')
+            }else{
+                res.send('Book ' + id + ' sucessfully updated')
+            }
+            
         } else {
             res.status(422)
             res.send('Invalid book id')

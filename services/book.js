@@ -19,9 +19,17 @@ function insertBook(newBook) {
 function updateBook(changes, id) {
     let currentBooks = JSON.parse(fs.readFileSync('booksDb.json'))
     const updatedIndex = currentBooks.findIndex(book => book.id === id)
-    const updatedContent = {...currentBooks[updatedIndex],...changes}
-    currentBooks[updatedIndex] = updatedContent
-    fs.writeFileSync('booksDb.json', JSON.stringify(currentBooks))
+    if (updatedIndex === -1) {
+        return {
+            type: 'Error',
+            message: 'Book not found'
+        }   
+    }else{
+        const updatedContent = {...currentBooks[updatedIndex],...changes}
+        currentBooks[updatedIndex] = updatedContent
+        fs.writeFileSync('booksDb.json', JSON.stringify(currentBooks))
+    }
+    
 }
 
 function removeBook(id) {
