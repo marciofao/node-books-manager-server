@@ -13,59 +13,65 @@ function getBooks(req, res) {
 function getBook(req, res) {
     try {
         const id = req.params.id
-        if(id && Number(id)) {
+        if (id && Number(id)) {
             const book = getBookById(id)
             res.send(book)
-        }else{
+        } else {
             res.status(422)
             res.send('Invalid book id')
         }
-        
-        
+
+
     } catch (error) {
         res.status(500)
-        res.send(error.message) 
+        res.send(error.message)
     }
 }
 
 function postBook(req, res) {
-    try { 
+    try {
         const newBook = req.body
         insertBook(newBook)
         res.send('Book sucessfully added')
-    } catch (error) { 
+    } catch (error) {
         res.status(500)
-        res.send(error.message) 
+        res.send(error.message)
     }
 }
 
 function patchBook(req, res) {
-    try { 
+    try {
         const id = req.params.id
-        const body = req.body
-        updateBook(body, id)
-        res.send('Book '+id+' sucessfully updated')
-    } catch (error) { 
+
+        if (id && Number(id)) {
+            const body = req.body
+            updateBook(body, id)
+            res.send('Book ' + id + ' sucessfully updated')
+        } else {
+            res.status(422)
+            res.send('Invalid book id')
+        }
+    } catch (error) {
         res.status(500)
-        res.send(error.message) 
+        res.send(error.message)
     }
 }
 
 function deleteBook(req, res) {
-    try { 
+    try {
         const id = req.params.id
 
-        if(id && Number(id)) {
-            removeBook( id)
-            res.send('Book '+id+' deleted')
-        }else{
+        if (id && Number(id)) {
+            removeBook(id)
+            res.send('Book ' + id + ' deleted')
+        } else {
             res.status(422)
             res.send('Invalid book id')
         }
-        
-    } catch (error) { 
+
+    } catch (error) {
         res.status(500)
-        res.send(error.message) 
+        res.send(error.message)
     }
 }
 
