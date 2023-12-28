@@ -7,6 +7,8 @@ companion frontend app: https://github.com/marciofao/react-book-manager
 
 - http routes (express router)
 - File manipulation (fs) json as db
+- Data validation
+- Error handling
 - Error status codes in api responses
 
 ## available endpoints
